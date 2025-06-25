@@ -1,3 +1,3 @@
 ### Brief visual explanation of Python's logging functionality
 
-![Untitled Diagram drawio](https://github.com/user-attachments/assets/6f4a2fbd-d55f-475e-893f-bea0e6d7bbe7)
+![Untitled Diagram drawio](https://github.com/user-attachments/assets/772f7ba7-c7bd-48e6-9d0b-a3472feb74b8)
