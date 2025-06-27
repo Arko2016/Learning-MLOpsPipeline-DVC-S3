@@ -84,7 +84,8 @@ def main(text_column='text', target_column='target'):
     Main function to load raw data, preprocess it, and save the processed data.
     """
     try:
-        # Fetch the data from data/raw
+        # Fetch the data from data/raw 
+        # This is where we saved the train and test files during data ingestion process
         train_data = pd.read_csv('./data/raw/train.csv')
         test_data = pd.read_csv('./data/raw/test.csv')
         logger.debug('Data loaded properly')
