@@ -33,8 +33,10 @@ file_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
-#function to load data (note: pd.Dataframe after '->' denotes return type hint/suggestion)
 def load_data(data_url:str) -> pd.DataFrame:
+    """
+    function to load data (note: pd.Dataframe after '->' denotes return type hint/suggestion)
+    """
     try:
         df = pd.read_csv(data_url)
         logger.debug('Data loaded for %s', data_url)
@@ -48,8 +50,10 @@ def load_data(data_url:str) -> pd.DataFrame:
         logger.error('Unexpected error while trying to load data from: %s', e)
         raise
 
-#function to preprocess data
 def preprocess_data(df:pd.DataFrame) -> pd.DataFrame:
+    """
+    function to preprocess data
+    """
     try:
         df.drop(columns = ['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], inplace = True)
         df.rename(columns = {'v1': 'target', 'v2': 'text'}, inplace = True)
@@ -62,8 +66,10 @@ def preprocess_data(df:pd.DataFrame) -> pd.DataFrame:
         logger.error('Unexpected error during preprocessing: %s', e)
         raise
 
-#function to save train and test data after splitting the main dataframe
 def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str) -> None:
+    """
+    function to save train and test data after splitting the main dataframe
+    """
     try:
         #create directory to save train and test data files
         raw_data_path = os.path.join(data_path, 'raw')
@@ -76,8 +82,11 @@ def save_data(train_data: pd.DataFrame, test_data: pd.DataFrame, data_path: str)
         logger.error('Unexpected error occurred while saving the data: %s', e)
         raise
 
-#define main function:
 def main():
+    """
+    define main function to load data, remove unwanted columns, 
+    split to train and test based on specified test size and save the data files
+    """
     try:
         #specify test dataframe size
         test_size = 0.2
