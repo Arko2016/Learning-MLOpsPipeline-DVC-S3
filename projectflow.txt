@@ -10,7 +10,7 @@ Building Pipeline:
        git rm -r --cached 'reports\', which will untrack all files under 'reports'
        also, make sure to commit it like : git commit -m "stopped tracking reports"
 
-Setting up dcv pipeline (without params)
+Setting up dvc pipeline (without params)
 5> Create dvc.yaml file and add stages to it.
    Crash course on yaml in this repo: https://github.com/Arko2016/Learning-YAML-crashcourse
 6> dvc init then do "dvc repro" to test the pipeline automation.
@@ -21,8 +21,8 @@ Setting up dcv pipeline (without params)
        This will help to revert back to a particular version through git, since we have added dvc.lock to tracking
 7> Now git add, commit, push
 
-Setting up dcv pipeline (with params)
+Setting up dvc pipeline (with params)
 8> add params.yaml file
 9> Add the params setup (mentioned below)
 10> Do "dvc repro" again to test the pipeline along with the params
-11> Now git add, commit, push
+11> Now perform git add, commit, push
