@@ -3,8 +3,8 @@ data_ingestion:
   data_path: 'https://raw.githubusercontent.com/Arko2016/Datasets/refs/heads/master/spam.csv'
 
 feature_engineering:
-  max_features: 30
+  max_features: 32
 
 model_building:
-  n_estimators: 25
+  n_estimators: 20
   random_state: 3
