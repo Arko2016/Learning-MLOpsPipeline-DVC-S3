@@ -26,6 +26,23 @@ file_handler.setFormatter(formatter)
 logger.addHandler(console_handler)
 logger.addHandler(file_handler)
 
+def load_params(params_path: str) -> dict:
+    """Load parameters from a YAML file."""
+    try:
+        with open(params_path, 'r') as file:
+            params = yaml.safe_load(file)
+        logger.debug('Parameters retrieved from %s', params_path)
+        return params
+    except FileNotFoundError:
+        logger.error('File not found: %s', params_path)
+        raise
+    except yaml.YAMLError as e:
+        logger.error('YAML error: %s', e)
+        raise
+    except Exception as e:
+        logger.error('Unexpected error: %s', e)
+        raise
+
 def load_data(file_path: str) -> pd.DataFrame:
     """Load data from a CSV file"""
     try:
@@ -83,8 +100,12 @@ def save_data(df: pd.DataFrame, file_path: str) -> None:
 
 def main():
     try:
+        #specify path for params.yaml file to get input parameters
+        params = load_params(params_path= 'params.yaml')
+
         #specify max number of features to vectorize train and test predictor variables
-        max_features = 50
+        max_features = params['feature_engineering']['max_features']
+        #max_features = 50
 
         #load train and test processed data as created during data preprocessing stage
         train_data = load_data('./data/interim/train_processed.csv')

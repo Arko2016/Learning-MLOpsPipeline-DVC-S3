@@ -24,5 +24,5 @@ Setting up dvc pipeline (without params)
 Setting up dvc pipeline (with params)
 8> add params.yaml file
 9> Add the params setup (mentioned below)
-10> Do "dvc repro" again to test the pipeline along with the params
+10> Do "dvc repro" again to test the pipeline along with the params, followed by git add dvc.lock to continue git tracking
 11> Now perform git add, commit, push
