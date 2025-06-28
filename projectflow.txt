@@ -23,6 +23,19 @@ Setting up dvc pipeline (without params)
 
 Setting up dvc pipeline (with params)
 8> add params.yaml file
-9> Add the params setup (mentioned below)
+9> Add the params setup in the files under src folder where the corresponding parameters in params.yaml experiments
+   In our case, it will be in data_ingestion, feature engineering and model_building
 10> Do "dvc repro" again to test the pipeline along with the params, followed by git add dvc.lock to continue git tracking
 11> Now perform git add, commit, push
+
+Expermients with DVC:
+12> pip install dvclive (if not already installed)
+13> dvclive is used for tracking experiments
+    in our case, dvclive code needs to be added to model_evaluation file under src folder since that will be used to track the model performance
+14> Experment tracking using -> "dvc exp run", it will create 
+    a> a new dvc.yaml(if already not there)
+    b> dvclive directory (each run will be considered as an experiment by DVC)
+15> Do "dvc exp show" on terminal to see the experiments or use extension on VSCode (install dvc extension)
+16> Do "dvc exp remove {exp-name}" to remove exp (optional) | "dvc exp apply {exp-name}" to reproduce prev exp
+17> Change params, re-run code (produce new experiments)
+18> Now git add, commit, push
