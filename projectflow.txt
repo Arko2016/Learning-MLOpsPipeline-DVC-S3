@@ -6,5 +6,10 @@ Building Pipeline:
 
 Setting up dcv pipeline (without params)
 5> Create dvc.yaml file and add stages to it.
-6> dvc init then do "dvc repro" to test the pipeline automation. (check dvc dag)
+6> dvc init then do "dvc repro" to test the pipeline automation.
+    Note:
+    a> Once dvc repor is execute successfully do 'git add dvc.lock' to add the changes for git tracking
+    b> Check using command 'dvc dag' to see flow of execution
+    c> The generated dvc lock file will generate a unique hash value for each update made for each stage
+       This will help to revert back to a particular version through git, since we have added dvc.lock to tracking
 7> Now git add, commit, push
