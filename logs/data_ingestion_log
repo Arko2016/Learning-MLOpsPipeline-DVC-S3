@@ -19,3 +19,7 @@
 2025-06-28 16:54:25,036 - data_ingestion - DEBUG - Data loaded for https://raw.githubusercontent.com/Arko2016/Datasets/refs/heads/master/spam.csv
 2025-06-28 16:54:25,038 - data_ingestion - DEBUG - Data preprocessing completed
 2025-06-28 16:54:25,076 - data_ingestion - DEBUG - Train and test data saved to ./data\raw
+2025-06-29 08:43:19,779 - data_ingestion - DEBUG - Parameters retrieved from params.yaml
+2025-06-29 08:43:20,180 - data_ingestion - DEBUG - Data loaded for https://raw.githubusercontent.com/Arko2016/Datasets/refs/heads/master/spam.csv
+2025-06-29 08:43:20,195 - data_ingestion - DEBUG - Data preprocessing completed
+2025-06-29 08:43:20,235 - data_ingestion - DEBUG - Train and test data saved to ./data\raw
