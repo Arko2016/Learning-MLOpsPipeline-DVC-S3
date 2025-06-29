@@ -36,6 +36,22 @@ Expermients with DVC:
     a> a new dvc.yaml(if already not there)
     b> dvclive directory (each run will be considered as an experiment by DVC)
 15> Do "dvc exp show" on terminal to see the experiments or use extension on VSCode (install dvc extension)
-16> Do "dvc exp remove {exp-name}" to remove exp (optional) | "dvc exp apply {exp-name}" to reproduce prev exp
+16> Do "dvc exp remove {exp-name}" to remove exp (optional) 
+    Additionally, do "dvc exp apply {exp-name}" to reproduce prev exp
 17> Change params, re-run code (produce new experiments)
 18> Now git add, commit, push
+
+Adding a remote S3 storage to S3:
+19> Login to AWS console and create an IAM user (if not already created)
+    Note: the credentials for IAM user will be utilized for connecting the application to s3 bucket or any other aws services
+20> Create S3 bucket (create unique bucket name)
+21> install python libraries dvc[s3] and awscli if not already installed
+    a> dvc[s3] : helps to connect dvc to s3 bucket
+    b> awscli : this will help to configure IAM user credentials to the project application
+22> Do aws configure -> on terminal
+23> Do dvc remote add -d dvcstore <you can give any other name instead of dvcstore> s3://<s3 bucketname>
+    This will update the config file under .dvc folder in the application with details of specified s3 bucket, thereby establishing connection between dvc and aws 
+24> dvc commit and dvc push the dvc exp outcome or version that you want to keep
+    the desired experiment can be reproduced using "dvc exp apply {exp-name}" as mentioned earlier
+25> Finally do git add, commit and push to save the changes
+26> Last but NOT least, delete the s3 bucket and IAM user details so that you dont get charged

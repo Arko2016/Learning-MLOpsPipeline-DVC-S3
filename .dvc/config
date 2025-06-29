@@ -1,0 +1,6 @@
+[core]
+    remote = dvcstore1
+['remote "dvcstore"']
+    url = s3://arkoaws-s3bucket-1
+['remote "dvcstore1"']
+    url = s3://arkoaws-s3bucket-1
