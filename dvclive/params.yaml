@@ -1,9 +1,9 @@
 data_ingestion:
-  test_size: 0.30
+  test_size: 0.25
   data_path: 
     https://raw.githubusercontent.com/Arko2016/Datasets/refs/heads/master/spam.csv
 feature_engineering:
-  max_features: 50
+  max_features: 32
 model_building:
-  n_estimators: 25
+  n_estimators: 20
   random_state: 3
